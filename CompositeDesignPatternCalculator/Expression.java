@@ -1,0 +1,30 @@
+package CompositeDesignPatternCalculator;
+
+public class Expression implements ArithmeticExpression{
+    ArithmeticExpression leftExpression;
+    ArithmeticExpression rightExpression;
+    Operation operation;
+
+    public Expression(ArithmeticExpression leftPart, ArithmeticExpression rightPart, Operation operation){
+        this.leftExpression = leftPart;
+        this.rightExpression = rightPart;
+        this.operation = operation;
+    }
+    @Override
+    public int evaluate(){
+        int value = 0;
+        switch (operation){
+            case ADD:
+                value = leftExpression.evaluate()+rightExpression.evaluate();
+            case SUBTRACT:
+                value = leftExpression.evaluate()+rightExpression.evaluate();
+            case MULTIPLY:
+                value = leftExpression.evaluate()*rightExpression.evaluate();
+            case DIVIDE:
+                value = leftExpression.evaluate()/rightExpression.evaluate();
+
+        }
+        System.out.println("Expression value is " + value);
+        return value;
+    }
+}
